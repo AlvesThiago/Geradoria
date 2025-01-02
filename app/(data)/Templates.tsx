@@ -323,6 +323,5 @@ export default [
             }
         ]
     }
-    
 
 ]
