@@ -22,16 +22,19 @@ function CreateNewContent(props:PROPS) {
 
     const [loading, setLoading] = useState(false);
 
+    const [aiOutput, setAiOutput] = useState<string>('')
+
     const GenerateAiContent=async (formData:any)=>{
         setLoading(true);
         const SelectedPrompt = selectedTemplate?.aiPrompt;
 
         const FinalAIPrompt = JSON.stringify(formData)+", " +SelectedPrompt;
 
-        const result=await chatSession.sendMessage(FinalAIPrompt)
+        const result=await chatSession.sendMessage(FinalAIPrompt);
 
         console.log(result.response.text());
-        setLoading(false)
+        setAiOutput(result.response.text());
+        setLoading(false);
     }
 
   return (
@@ -43,7 +46,7 @@ function CreateNewContent(props:PROPS) {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-10 py-5'>
             <FormSection  selectedTemplate={selectedTemplate} userFormInput={(v:any)=>GenerateAiContent(v)} loading={loading} />
             <div className='col-span-2'>
-                <OutputSection />
+                <OutputSection  aiOutput={aiOutput}/>
             </div>
         </div>
     </div>
