@@ -9,7 +9,7 @@ function layout({
     children: React.ReactNode;
   }>) {
   return (
-    <div className='bg-slate-100 h-screen'>
+    <div className='bg-white h-screen'>
         <div className='md:w-64 hidden md:block fixed'>
             <SideNav />
         </div>
@@ -17,7 +17,6 @@ function layout({
             <Header />
             {children}
         </div>
-        
     </div>
   )
 }

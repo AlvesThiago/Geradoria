@@ -8,9 +8,9 @@ function Dashboard() {
   const [userSearchInput, setUserSearchInput] = useState<string>(''); // Corrigido o nome da função
 
   return (
-    <div>
+    <div className='bg-white'>
       <SearchSection onSearchInput={(value: string) => setUserSearchInput(value)} /> {/* Atualizando o estado */}
-      <TemplateListSection userSearchInput={userSearchInput} />
+      <TemplateListSection userSearchInput={userSearchInput}/>
     </div>
   )
 }
