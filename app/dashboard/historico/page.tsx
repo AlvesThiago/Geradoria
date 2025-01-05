@@ -12,7 +12,8 @@
     import { AIOutput } from "@/utils/schema";
     import { Code2, Hash, Newspaper } from "lucide-react";
 
-    interface HistoryItem {
+    export interface HistoryItem {
+        aiResponse: any;
         icon: "code" | "hashtag" | "blog";
         template: string;
         aiResp: string;
@@ -47,6 +48,7 @@
         .execute();
 
     return result.map((item: any) => ({
+        aiResponse: item.aiResp,
         icon: determineIcon(item.template),
         template: item.template,
         aiResp: item.aiResp,
