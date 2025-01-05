@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Planos() {
@@ -16,11 +17,13 @@ function Planos() {
           Se você acredita no nosso trabalho, considere fazer uma doação. Ela nos permite continuar evoluindo e oferecendo um serviço de qualidade.
         </p>
 
-        <button
-          className="py-3 px-6 bg-blue-600 text-white font-semibold text-lg rounded-md hover:bg-blue-700 transition duration-300 w-full md:w-auto"
-        >
-          Fazer uma Doação
-        </button>
+
+          <a href='https://link.mercadopago.com.br/geradoria' target="_blank" rel="noopener noreferrer"
+            className="py-3 px-6 bg-blue-600 text-white font-semibold text-lg rounded-md hover:bg-blue-700 transition duration-300 w-full md:w-auto"
+          >
+            Fazer uma Doação
+          </a>
+
 
         <p className="text-sm text-gray-500 mt-6">
           Ao clicar no botão, você será redirecionado para a plataforma de pagamento.
