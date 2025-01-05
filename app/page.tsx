@@ -14,7 +14,7 @@ export default function Home() {
         <div className="hidden md:flex items-center space-x-6">
         <Link href={'/dashboard'}>
           <Button className="bg-indigo-900  hover:bg-indigo-500 text-white px-6 py-2 rounded-md flex items-center">
-            Teste Agora 
+            Teste Gratis
             <ArrowRightIcon size={16}  className="ml-2"/>
           </Button>
         </Link>
@@ -55,7 +55,7 @@ export default function Home() {
           </p>
           <Link href={'/dashboard'}>
             <button className="bg-indigo-900 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-indigo-800 transition-colors">
-              Teste Agora ➡
+              Teste Gratis ➡
             </button>
           </Link>
         </div>

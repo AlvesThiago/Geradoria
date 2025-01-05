@@ -70,56 +70,74 @@
     }
 
   // Componente principal
-    export default async function HistoryTable() {
+  export default async function HistoryTable() {
     const historyData = (await fetchHistoryData()) || []; // Valor padrão como array vazio
-
+  
     return (
-    <div className="container mx-auto py-10">
+      <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-            <h1 className="text-2xl font-bold tracking-tight">Histórico</h1>
-            <p className="text-muted-foreground">
-                Pesquise seu conteúdo de IA gerado anteriormente
-            </p>
+          <h1 className="text-2xl font-bold tracking-tight">Histórico</h1>
+          <p className="text-muted-foreground text-sm sm:text-base">
+            Pesquise seu conteúdo de IA gerado anteriormente
+          </p>
         </div>
-        <div className="rounded-lg border bg-white p-5">
-            <Table>
-                <TableHeader>
+        <div className="rounded-lg border bg-white p-5 shadow-sm">
+          <div className="overflow-x-auto">
+            {/* Wrapper com overflow-x para permitir rolagem horizontal */}
+            <Table className="min-w-full text-left">
+              <TableHeader>
                 <TableRow className="bg-white">
-                    <TableHead className="w-[200px] font-bold text-xl">TEMPLATE</TableHead>
-                    <TableHead className="w-[400px] font-bold text-xl">RESPOSTA</TableHead>
-                    <TableHead className="w-[150px] font-bold text-xl">DATA</TableHead>
-                    <TableHead className="w-[100px] font-bold text-xl">PALAVRAS</TableHead>
-                    <TableHead className="w-[100px] font-bold text-xl">COPIAR</TableHead>
+                  <TableHead className="w-[200px] font-bold text-sm sm:text-base">
+                    TEMPLATE
+                  </TableHead>
+                  <TableHead className="w-[400px] font-bold text-sm sm:text-base">
+                    RESPOSTA
+                  </TableHead>
+                  <TableHead className="w-[150px] font-bold text-sm sm:text-base">
+                    DATA
+                  </TableHead>
+                  <TableHead className="w-[100px] font-bold text-sm sm:text-base">
+                    PALAVRAS
+                  </TableHead>
+                  <TableHead className="w-[100px] font-bold text-sm sm:text-base">
+                    COPIAR
+                  </TableHead>
                 </TableRow>
-                </TableHeader>
-                <TableBody>
+              </TableHeader>
+              <TableBody>
                 {historyData.length > 0 ? (
-                    historyData.map((item, index) => (
+                  historyData.map((item, index) => (
                     <TableRow key={index}>
-                        <TableCell className="flex items-center gap-2">
-                            <IconComponent type={item.icon} />
-                            {item.template}
-                        </TableCell>
-                        <TableCell className="font-mono text-sm text-muted-foreground break-words">
-                            {item.aiResp}
-                        </TableCell>
-                        <TableCell>{item.date}</TableCell>
-                        <TableCell>{item.words}</TableCell>
-                        <TableCell>
-                            <Button>Copy</Button>
-                        </TableCell>
+                      <TableCell className="flex items-center gap-2">
+                        <IconComponent type={item.icon} />
+                        <span className="text-sm sm:text-base">{item.template}</span>
+                      </TableCell>
+                      <TableCell className="font-mono text-xs sm:text-sm text-muted-foreground break-words max-w-[200px] sm:max-w-[400px] truncate">
+                        {item.aiResp}
+                      </TableCell>
+                      <TableCell className="text-sm sm:text-base">
+                        {item.date}
+                      </TableCell>
+                      <TableCell className="text-sm sm:text-base">
+                        {item.words}
+                      </TableCell>
+                      <TableCell>
+                        <Button size="sm">Copy</Button>
+                      </TableCell>
                     </TableRow>
-                    ))
-                    ) : (
-                        <TableRow>
-                            <TableCell colSpan={5} className="text-center">
-                                No data available
-                            </TableCell>
-                        </TableRow>
-                    )}
-                </TableBody>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center text-sm sm:text-base">
+                      Nenhum dado disponível
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
             </Table>
+          </div>
         </div>
-    </div>
+      </div>
     );
-}
+  }
+  

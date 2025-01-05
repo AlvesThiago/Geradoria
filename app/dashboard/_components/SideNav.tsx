@@ -21,7 +21,7 @@ function SideNav() {
             path:'/dashboard/historico'
         },
         {
-            name: 'Planos',
+            name: 'Apoiar',
             icon: WalletCards,
             path:'/dashboard/planos'
         },
@@ -40,7 +40,7 @@ function SideNav() {
   return (
     <div className='h-screen relative p-5 shadow-sm border bg-white'>
         <div className='flex justify-center'>
-            <Image src={'/logo.svg'} alt='logo' width={120} height={100} />
+            <Image src={'/LogoGe.png'} alt='logo' width={40} height={100} />
         </div>
         <hr className='my-4' />
         <div className='mt-10'>
