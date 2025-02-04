@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GeradorIa 🖥️
 
-## Getting Started
+O **GeradorIa** é uma plataforma inovadora que integra diversos programas de inteligência artificial para oferecer soluções práticas e eficientes em múltiplos tópicos. Desenvolvido com foco na otimização da interação com os usuários, o sistema é intuitivo, seguro e repleto de funcionalidades úteis.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Landing Page Intuitiva e Funcional**: Projetada para proporcionar uma excelente experiência ao usuário.
+- **Autenticação Segura com Clerk**: Garante que todas as interações sejam protegidas e seguras.
+- **Dashboard para Usuários**: Permite o gerenciamento fácil das interações, visualizando e controlando atividades de forma simples.
+- **Histórico de Respostas**: Acesso rápido a respostas passadas para facilitar consultas futuras.
+- **Sistema de Donate**: Incentiva a continuidade do projeto, permitindo doações para seu crescimento e manutenção.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **React.js**: Biblioteca JavaScript para construção de interfaces interativas.
+- **Next.js**: Framework React para renderização no lado do servidor e otimização de desempenho.
+- **TypeScript**: Linguagem que adiciona tipagem estática ao JavaScript, tornando o código mais seguro e fácil de manter.
+- **Tailwind CSS**: Framework de CSS utilitário para um design flexível e responsivo.
+- **Shadcn/UI**: Conjunto de componentes de UI para uma experiência de usuário moderna.
+- **Editor TOAST UI**: Editor de texto WYSIWYG para uma experiência de escrita rica e personalizada.
+- **Clerk**: Sistema de autenticação para controle de acesso seguro aos usuários.
+- **Neon**: Banco de dados moderno e rápido para armazenar dados com alta performance.
+- **API Gemini**: Integração com a poderosa API de Inteligência Artificial Gemini.
+- **Drizzle ORM**: Framework ORM para facilitar a interação com o banco de dados de forma eficiente.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como Executar o Projeto
 
-## Learn More
+Siga os passos abaixo para configurar e executar o **GeradorIa** em sua máquina local.
 
-To learn more about Next.js, take a look at the following resources:
+### Pré-requisitos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+- Conta no [Clerk](https://clerk.dev/) para autenticação
+- Conta no [Neon](https://neon.tech/) para banco de dados
+- Chave de API do [Gemini](https://gemini.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Passos para Configuração
 
-## Deploy on Vercel
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/geradoria.git
+   cd geradoria
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Instale as dependências**:
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Configure as variáveis de ambiente**:
+   Crie um arquivo `.env.local` na raiz do projeto e adicione as seguintes variáveis:
+   ```env
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=sua_chave_publica_do_clerk
+   CLERK_SECRET_KEY=sua_chave_secreta_do_clerk
+   DATABASE_URL=sua_url_do_banco_de_dados_neon
+   GEMINI_API_KEY=sua_chave_da_api_gemini
+   ```
+
+4. **Execute as migrações do banco de dados**:
+   ```bash
+   npx drizzle-kit push:pg
+   ```
+
+5. **Inicie o servidor de desenvolvimento**:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+6. **Acesse o projeto**:
+   Abra o navegador e acesse `http://localhost:3000`.
+
+## Como Contribuir
+
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir com o projeto:
+
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature ou correção:
+   ```bash
+   git checkout -b minha-feature
+   ```
+3. Faça commit das suas alterações:
+   ```bash
+   git commit -m "Adicionando nova funcionalidade"
+   ```
+4. Envie as alterações para o repositório remoto:
+   ```bash
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request no repositório original.
